@@ -13,8 +13,8 @@ public class Employee {
 
     public void printDetails() {
         System.out.println("---------------------------------");
-        System.out.println("Name    " + name);
-        System.out.println("EmpId   " + empId);
+        System.out.println("Name    " + this.name);
+        System.out.println("EmpId   " + this.empId);
         System.out.println("Satus   " +  (status ? "Working ": "Terminated" ));
         System.out.println("Salary  " +  this.salary);
     }
