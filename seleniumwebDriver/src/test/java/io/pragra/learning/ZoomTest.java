@@ -7,8 +7,10 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.Set;
 
+@Test(enabled = false)
 public class ZoomTest {
     WebDriver driver;
     @BeforeSuite
@@ -73,7 +75,7 @@ public class ZoomTest {
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void tc2() throws InterruptedException {
        driver.get("https://www1.oanda.com/currency/converter/");
        driver.findElement(By.id("base_currency_input")).sendKeys("INR", Keys.ENTER);
@@ -84,6 +86,13 @@ public class ZoomTest {
         driver.navigate().refresh();
        driver.manage().addCookie(new Cookie("base_currency_0","CAD"));
         driver.navigate().refresh();
+    }
+
+    @Test
+    public void findElementsTest() {
+        List<WebElement> allLinks = driver.findElements(By.tagName("a"));
+        System.out.println("Total link  " + allLinks.size());
+        allLinks.stream().map( e->e.getAttribute("href")).forEach(System.out::println);
     }
 
     @AfterSuite
